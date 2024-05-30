@@ -23,3 +23,29 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+// ============================================================================================== //
+
+// EITHER:
+
+import "cypress-xray-plugin/commands";
+
+// OR:
+
+// import { enqueueTask, PluginTask } from "cypress-xray-plugin/commands/tasks";
+
+// Cypress.Commands.overwrite("request", (originalFn, options) => {
+//   return enqueueTask(
+//     PluginTask.OUTGOING_REQUEST,
+//     `request ${new Date().toTimeString()}.json`,
+//     options
+//   )
+//     .then(originalFn)
+//     .then((response) =>
+//       enqueueTask(
+//         PluginTask.INCOMING_RESPONSE,
+//         `response ${new Date().toTimeString()}.json`,
+//         response
+//       )
+//     );
+// });
