@@ -1,0 +1,1 @@
+# cypress-xray-plugin-examples
