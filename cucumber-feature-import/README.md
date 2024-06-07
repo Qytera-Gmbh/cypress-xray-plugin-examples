@@ -13,7 +13,7 @@ This is a demo project to teach how to use the Cucumber feature file import of t
 
    ```sh
    git clone https://github.com/Qytera-Gmbh/cypress-xray-plugin-examples
-   cd cypress-xray-plugin-examples/request-upload
+   cd cypress-xray-plugin-examples/cucumber-feature-import
    ```
 
 2. Install dependencies:
