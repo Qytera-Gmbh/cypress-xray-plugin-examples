@@ -5,6 +5,8 @@ import { defineConfig } from "cypress";
 import fix from "cypress-on-fix";
 import { configureXrayPlugin, syncFeatureFile } from "cypress-xray-plugin";
 
+// For reading environment variables from a .env file.
+// See: https://www.npmjs.com/package/dotenv
 import "dotenv/config";
 
 export default defineConfig({
@@ -21,14 +23,13 @@ export default defineConfig({
           // Placeholder.
           projectKey: "CYP",
           url: "https://example.org",
-          testPlanIssueKey: "CYP-1",
         },
         cucumber: {
           featureFileExtension: ".feature",
           uploadFeatures: true,
           prefixes: {
-            test: "TestId:",
-            precondition: "Precondition:",
+            test: "MyScenarioPrefix:",
+            precondition: "MyPreconditionPrefix:",
           },
         },
       });

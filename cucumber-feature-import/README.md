@@ -40,9 +40,23 @@ This is a demo project to teach how to use the Cucumber feature file import of t
 
    JIRA_PROJECT_KEY=...
    JIRA_URL=...
+   ...
    ```
 
-4. TODO
+4. Adapt the Cucumber tags key in `cucumber-feature-import\cypress\e2e\mini.feature` to your Xray/Cucumber [tagging scheme](https://qytera-gmbh.github.io/projects/cypress-xray-plugin/section/configuration/cucumber/#prefixes) and [existing issues](https://qytera-gmbh.github.io/projects/cypress-xray-plugin/section/guides/targetingExistingIssues/#reuse-cucumber-issues), e.g.:
+
+    ```diff
+      Background:
+    -   #@MyPreconditionPrefix:CYP-12345
+    +   #@Precondition:PRJ-42
+        Given A given
+
+    - @MyScenarioPrefix:CYP-67890
+    + @TestName:PRJ-123
+      Scenario: A scenario
+        When A when
+        Then A then
+    ```
 
 ## Running Tests
 
@@ -52,4 +66,21 @@ To run the tests, use the following command:
 npx cypress run
 ```
 
-TODO
+The `mini.feature` feature file will be imported to Xray on execution.
+Ideally, no warnings should appear.
+However, it usually takes a few tries to figure out how feature files need to be tagged so that Xray can understand them and associate them with corresponding test or precondition issues.
+
+```console
+[...]
+  Running:  mini.feature
+│ Cypress Xray Plugin │ INFO    │ Preprocessing feature file cypress\e2e\mini.feature...
+│ Cypress Xray Plugin │ INFO    │ Importing feature file to Xray...
+
+
+  A feature
+    √ A scenario (163ms)
+
+
+  1 passing (198ms)
+[...]
+```

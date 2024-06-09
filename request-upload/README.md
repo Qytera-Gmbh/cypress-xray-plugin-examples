@@ -40,6 +40,7 @@ This is a demo project to teach how to use the `cy.request` command in Cypress i
 
     JIRA_PROJECT_KEY=...
     JIRA_URL=...
+    ...
     ```
 
 4. Change the issue key in `request-upload\cypress\e2e\spec.cy.ts` to your project's issue key, e.g.:
@@ -62,7 +63,7 @@ The plugin should then upload the requests' data:
 ```console
 [...]
 │ Cypress Xray Plugin │ INFO    │ Uploading native Cypress test results...
-│ Cypress Xray Plugin │ SUCCESS │ Uploaded test results to issue: CYP-721 (https://qualitymaster.atlassian.net/browse/CYP-721)
+│ Cypress Xray Plugin │ SUCCESS │ Uploaded test results to issue: CYP-721 (https://example.atlassian.net/browse/CYP-721)
 ```
 
 ![alt text](assets/execution-results.png)

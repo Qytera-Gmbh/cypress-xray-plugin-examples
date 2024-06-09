@@ -1,5 +1,8 @@
 import { defineConfig } from "cypress";
 import { configureXrayPlugin } from "cypress-xray-plugin";
+
+// For reading environment variables from a .env file.
+// See: https://www.npmjs.com/package/dotenv
 import "dotenv/config";
 
 export default defineConfig({
@@ -11,7 +14,6 @@ export default defineConfig({
           // Placeholder values.
           projectKey: "CYP",
           url: "https://example.org",
-          testExecutionIssueKey: "CYP-721",
         },
         xray: {
           uploadRequests: true,

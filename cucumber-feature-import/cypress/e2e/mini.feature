@@ -1,7 +1,10 @@
-@Story:CYP-2
 Feature: A feature
 
-  @TestId:CYP-7778
-  Scenario: A scenario
+  Background:
+    #@Precondition:CYP-752
     Given A given
+
+  @TestName:CYP-738
+  Scenario: A scenario
     When A when
+    Then A then
