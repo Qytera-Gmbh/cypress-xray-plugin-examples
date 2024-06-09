@@ -43,20 +43,35 @@ This is a demo project to teach how to use the Cucumber feature file import of t
    ...
    ```
 
-4. Adapt the Cucumber tags key in `cucumber-feature-import\cypress\e2e\mini.feature` to your Xray/Cucumber [tagging scheme](https://qytera-gmbh.github.io/projects/cypress-xray-plugin/section/configuration/cucumber/#prefixes) and [existing issues](https://qytera-gmbh.github.io/projects/cypress-xray-plugin/section/guides/targetingExistingIssues/#reuse-cucumber-issues), e.g.:
+4. Adapt the Cucumber prefixes in `cucumber-feature-import\cypress.config.ts` to your Xray/Cucumber [tagging scheme](https://qytera-gmbh.github.io/projects/cypress-xray-plugin/section/configuration/cucumber/#prefixes), e.g.:
 
-    ```diff
-      Background:
-    -   #@MyPreconditionPrefix:CYP-12345
-    +   #@Precondition:PRJ-42
-        Given A given
+   ```diff
+     cucumber: {
+       featureFileExtension: ".feature",
+       uploadFeatures: true,
+       prefixes: {
+   -     test: "MyScenarioPrefix:",
+   +     test: "TestName:",
+   -     precondition: "MyPreconditionPrefix:",
+   +     precondition: "Precondition:",
+       },
+     },
+   ```
 
-    - @MyScenarioPrefix:CYP-67890
-    + @TestName:PRJ-123
-      Scenario: A scenario
-        When A when
-        Then A then
-    ```
+4. Adapt the Cucumber tags in `cucumber-feature-import\cypress\e2e\mini.feature` to your Xray/Cucumber tagging scheme and [existing issues](https://qytera-gmbh.github.io/projects/cypress-xray-plugin/section/guides/targetingExistingIssues/#reuse-cucumber-issues), e.g.:
+
+   ```diff
+     Background:
+   -   #@MyPreconditionPrefix:CYP-12345
+   +   #@Precondition:PRJ-42
+       Given A given
+
+   - @MyScenarioPrefix:CYP-67890
+   + @TestName:PRJ-123
+     Scenario: A scenario
+       When A when
+       Then A then
+   ```
 
 ## Running Tests
 
